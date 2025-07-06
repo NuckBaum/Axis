@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ось - Энциклопедия вымышленной вселенной</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: -15px;
+            top: 12px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #8b5cf6, #ec4899);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-black bg-opacity-90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center pulse-animation">
+                        <i class="fas fa-infinity text-white"></i>
+                    </div>
+                    <h1 class="title-font text-2xl font-bold gradient-text">ОСЬ</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#worlds" class="nav-link text-gray-300 hover:text-white">Миры</a>
+                    <a href="#artifacts" class="nav-link text-gray-300 hover:text-white">Артефакты</a>
+                    <a href="#characters" class="nav-link text-gray-300 hover:text-white">Персонажи</a>
+                    <a href="#gods" class="nav-link text-gray-300 hover:text-white">Боги</a>
+                    <a href="#chronicles" class="nav-link text-gray-300 hover:text-white">Хроники</a>
+                    <a href="#timeline" class="nav-link text-gray-300 hover:text-white">Хронология</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-full hover:opacity-90 transition">
+                        Войти
+                    </button>
+                    <button class="md:hidden text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-gradient-to-b from-black via-purple-900/10 to-black overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-full h-full opacity-20" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1794&q=80'); background-size: cover;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="title-font text-5xl md:text-7xl font-bold mb-6 gradient-text">Вселенная "Ось"</h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Где фантастика встречается с фэнтези, а судьбы миров вращаются вокруг великой Оси...
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-medium">
+                    Начать путешествие
+                </button>
+                <button class="border border-purple-500 text-purple-300 px-6 py-3 rounded-full hover:bg-purple-900/30 transition font-medium">
+                    Узнать больше
+                </button>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#worlds" class="text-gray-400 hover:text-white animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Worlds Section -->
+    <section id="worlds" class="py-20 bg-gradient-to-b from-black via-purple-900/5 to-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Миры Оси</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- World Card 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-900/50 to-pink-900/50 flex items-center justify-center">
+                        <i class="fas fa-globe-americas text-6xl text-purple-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Элиндор</h3>
+                        <p class="text-gray-400 mb-4">Древний мир магов и руин, где тайные знания и магия правят бал.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-calendar-alt mr-1"></i> Эпоха Рассвета</span>
+                            <span><i class="fas fa-map-marker-alt mr-1"></i> Центральный сектор</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World Card 2 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-900/50 to-cyan-900/50 flex items-center justify-center">
+                        <i class="fas fa-atom text-6xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Киберния</h3>
+                        <p class="text-gray-400 mb-4">Запретный город-крепость, где древние механизмы всё ещё работают по воле давно забытых создателей.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-calendar-alt mr-1"></i> Эпоха Стали</span>
+                            <span><i class="fas fa-map-marker-alt mr-1"></i> Внешнее кольцо</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World Card 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-red-900/50 to-orange-900/50 flex items-center justify-center">
+                        <i class="fas fa-fire text-6xl text-red-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Драксар</h3>
+                        <p class="text-gray-400 mb-4">Огненная пустошь, населённая драконами и воинственными кланами.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-calendar-alt mr-1"></i> Эпоха Хаоса</span>
+                            <span><i class="fas fa-map-marker-alt mr-1"></i> Южный сектор</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border border-purple-500 text-purple-300 px-6 py-3 rounded-full hover:bg-purple-900/30 transition font-medium">
+                    Все миры <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifacts Section -->
+    <section id="artifacts" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Артефакты</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Artifact Card 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-gradient-to-b from-gray-900/50 to-gray-800/50 flex items-center justify-center p-6">
+                        <i class="fas fa-sword text-5xl text-gray-300"></i>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Абсценваль</h3>
+                        <p class="text-gray-400 mb-4">Тёмный клинок с едва заметным узором, напоминающим застывшие вены, и кровавым камнем у основания, пульсирующим тусклым светом. В руках ощущается неестественно тяжёлым, будто впитывает волю владельца, а при ударах издаёт едва слышный стон.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs">Тёмный</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Память</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Забытые земли</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artifact Card 4 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-gradient-to-b from-gray-900/50 to-gray-700/50 flex items-center justify-center p-6">
+                        <i class="fas fa-hourglass-half text-5xl text-gray-300"></i>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Песочные Часы Олия</h3>
+                        <p class="text-gray-400 mb-4">Двойной артефакт из чёрной и белой колб, наполненных пеплом прошлого и пылью будущего. Они показывают утраченные мгновения и несбывшиеся пути, но каждое видение обжигает душу, как открытая рана. Говорят, тот, кто заглянет в них, увидит самое желанное — и самое невозможное.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs">Время</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Судьба</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Забытые земли</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artifact Card 4 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-gradient-to-b from-gray-900/50 to-gray-700/50 flex items-center justify-center p-6">
+                        <i class="fas fa-hourglass-half text-5xl text-gray-300"></i>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Песочные Часы Олия</h3>
+                        <p class="text-gray-400 mb-4">Двойной артефакт из чёрной и белой колб, наполненных пеплом прошлого и пылью будущего. Они показывают утраченные мгновения и несбывшиеся пути, но каждое видение обжигает душу, как открытая рана. Говорят, тот, кто заглянет в них, увидит самое желанное — и самое невозможное.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs">Время</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Судьба</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Забытые земли</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-20 bg-gradient-to-b from-black via-purple-900/5 to-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Персонажи</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Character Card 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover text-center">
+                    <div class="h-64 bg-gradient-to-b from-purple-900/30 to-pink-900/30 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1547721064-da6cfb341d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')] bg-cover bg-center opacity-30"></div>
+                        <div class="z-10 w-32 h-32 rounded-full border-4 border-purple-500 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1547721064-da6cfb341d50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Аэлис" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold mb-1">Аэлис</h3>
+                        <p class="text-purple-400 text-sm mb-2">Хранительница Сердца Оси</p>
+                        <p class="text-gray-400 text-sm">Последняя из рода магов Элиндора, защищающая древние тайны от сил тьмы.</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Character Card 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover text-center">
+                    <div class="h-64 bg-gradient-to-b from-red-900/30 to-orange-900/30 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')] bg-cover bg-center opacity-30"></div>
+                        <div class="z-10 w-32 h-32 rounded-full border-4 border-red-500 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Драксис" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold mb-1">Драксис</h3>
+                        <p class="text-red-400 text-sm mb-2">Вождь клана Пепла</p>
+                        <p class="text-gray-400 text-sm">Неукротимый воин Драксара, носящий Чешую Игниса и мечтающий объединить все кланы под своим знаменем.</p>
+                    </div>
+                </div>
+                
+                <!-- Character Card 4 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover text-center">
+                    <div class="h-64 bg-gradient-to-b from-green-900/30 to-emerald-900/30 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')] bg-cover bg-center opacity-30"></div>
+                        <div class="z-10 w-32 h-32 rounded-full border-4 border-green-500 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Хронос" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold mb-1">Хронос</h3>
+                        <p class="text-green-400 text-sm mb-2">Последний хранитель Тома Вечности</p>
+                        <p class="text-gray-400 text-sm">Таинственный странник, знающий все языки и все пути, но забывший своё собственное имя.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pantheons Section -->
+    <section id="pantheons" class="py-20 bg-gradient-to-b from-black via-purple-900/5 to-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Пантеоны Оси</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Solar Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-yellow-900/50 to-amber-900/50 flex items-center justify-center">
+                        <i class="fas fa-sun text-6xl text-yellow-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Солярный Пантеон</h3>
+                        <p class="text-gray-400 mb-4">Боги света, порядка и созидания. Покровители цивилизации и знания.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-yellow-900/50 text-yellow-300 px-3 py-1 rounded-full text-xs">Свет</span>
+                            <span class="bg-amber-900/50 text-amber-300 px-3 py-1 rounded-full text-xs">Знание</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">5 божеств</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chthonic Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-gray-900/50 to-gray-800/50 flex items-center justify-center">
+                        <i class="fas fa-skull text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Хтонический Пантеон</h3>
+                        <p class="text-gray-400 mb-4">Боги тьмы, смерти и подземного мира. Хранители запретных знаний.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs">Тьма</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Смерть</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">7 божеств</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fire Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-red-900/50 to-orange-900/50 flex items-center justify-center">
+                        <i class="fas fa-fire text-6xl text-red-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Пантеон Огня</h3>
+                        <p class="text-gray-400 mb-4">Боги разрушения, страсти и трансформации. Повелители вулканов и драконов.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-900/50 text-red-300 px-3 py-1 rounded-full text-xs">Огонь</span>
+                            <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded-full text-xs">Страсть</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">4 божества</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Water Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-900/50 to-cyan-900/50 flex items-center justify-center">
+                        <i class="fas fa-water text-6xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Пантеон Воды</h3>
+                        <p class="text-gray-400 mb-4">Боги морей, эмоций и изменений. Хранители древних тайн океанов.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full text-xs">Вода</span>
+                            <span class="bg-cyan-900/50 text-cyan-300 px-3 py-1 rounded-full text-xs">Эмоции</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">6 божеств</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Earth Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-900/50 to-emerald-900/50 flex items-center justify-center">
+                        <i class="fas fa-mountain text-6xl text-green-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Пантеон Земли</h3>
+                        <p class="text-gray-400 mb-4">Боги природы, плодородия и стабильности. Защитники жизни и роста.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded-full text-xs">Земля</span>
+                            <span class="bg-emerald-900/50 text-emerald-300 px-3 py-1 rounded-full text-xs">Природа</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">5 божеств</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Air Pantheon -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-indigo-900/50 to-purple-900/50 flex items-center justify-center">
+                        <i class="fas fa-wind text-6xl text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Пантеон Воздуха</h3>
+                        <p class="text-gray-400 mb-4">Боги ветров, мысли и свободы. Вестники судьбы и провидцы.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full text-xs">Воздух</span>
+                            <span class="bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full text-xs">Мысль</span>
+                            <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">4 божества</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 bg-gradient-to-b from-black via-purple-900/5 to-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Хронология событий</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 mb-12 timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="title-font text-xl font-bold">Сотворение Оси</h3>
+                            <span class="bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full text-sm">Эпоха Творения</span>
+                        </div>
+                        <p class="text-gray-400">Астраэль создаёт Ось как центр вселенной и основывает первый мир - Элиндор.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-8 mb-12 timeline-item">
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="title-font text-xl font-bold">Война Богов</h3>
+                            <span class="bg-red-900/50 text-red-300 px-3 py-1 rounded-full text-sm">Эпоха Хаоса</span>
+                        </div>
+                        <p class="text-gray-400">Конфликт между Астраэлем и Игнисом приводит к расколу и созданию Драксара.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="relative pl-8 mb-12 timeline-item">
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="title-font text-xl font-bold">Рождение Кибернии</h3>
+                            <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full text-sm">Эпоха Стали</span>
+                        </div>
+                        <p class="text-gray-400">Технон вдохновляет первых инженеров на создание технологической цивилизации.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative pl-8 mb-12 timeline-item">
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="title-font text-xl font-bold">Исчезновение Богов</h3>
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm">Эпоха Тени</span>
+                        </div>
+                        <p class="text-gray-400">Боги покидают материальный мир, оставляя после себя лишь артефакты и легенды.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="relative pl-8 timeline-item">
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 card-hover">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="title-font text-xl font-bold">Пробуждение Оси</h3>
+                            <span class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-3 py-1 rounded-full text-sm">Современная эпоха</span>
+                        </div>
+                        <p class="text-gray-400">Сердце Оси начинает пульсировать, предвещая новую эру в истории вселенной.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chronicles Section -->
+    <section id="chronicles" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 mr-4"></div>
+                <h2 class="title-font text-3xl md:text-4xl font-bold gradient-text">Хроники</h2>
+                <div class="flex-1 h-0.5 bg-gradient-to-l from-purple-600 to-pink-500 ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Chronicle Card 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-900/50 to-pink-900/50 flex items-center justify-center">
+                        <i class="fas fa-scroll text-6xl text-purple-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold mb-2">Легенды Рассвета</h3>
+                        <p class="text-gray-400 mb-4">Собрание древних преданий о создании Оси и первых днях Элиндора.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-user mr-1"></i> Аэлис</span>
+                            <span><i class="fas fa-calendar mr-1"></i> 124 г. Э.Р.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Chronicle Card 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-red-900/50 to-orange-900/50 flex items-center justify-center">
+                        <i class="fas fa-book-dead text-6xl text-red-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold mb-2">Песни Пепла</h3>
+                        <p class="text-gray-400 mb-4">Эпические поэмы о подвигах кланов Драксара и великих драконах прошлого.</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span><i class="fas fa-user mr-1"></i> Драксис</span>
+                            <span><i class="fas fa-calendar mr-1"></i> 302 г. Э.Х.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-infinity text-white text-sm"></i>
+                        </div>
+                        <h3 class="title-font text-xl font-bold gradient-text">ОСЬ</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Фан-сайт, посвящённый вселенной "Ось" - где фантастика встречается с фэнтези.</p>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-bold mb-4 text-white">Разделы</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#worlds" class="text-gray-400 hover:text-white transition">Миры</a></li>
+                        <li><a href="#artifacts" class="text-gray-400 hover:text-white transition">Артефакты</a></li>
+                        <li><a href="#characters" class="text-gray-400 hover:text-white transition">Персонажи</a></li>
+                        <li><a href="#gods" class="text-gray-400 hover:text-white transition">Боги</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-bold mb-4 text-white">Ресурсы</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#chronicles" class="text-gray-400 hover:text-white transition">Хроники</a></li>
+                        <li><a href="#timeline" class="text-gray-400 hover:text-white transition">Хронология</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Библиотека</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Карта вселенной</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-bold mb-4 text-white">Сообщество</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-telegram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-vk text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-sm">Присоединяйтесь к нашему сообществу!</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2023 Вселенная "Ось". Все права защищены.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm">Политика конфиденциальности</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm">Условия использования</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle would go here
+        // For simplicity, it's not implemented in this example
+    </script>
+</body>
+</html>
